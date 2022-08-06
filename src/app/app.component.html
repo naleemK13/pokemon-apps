@@ -1,26 +1,10 @@
-<h1 class="center">Liste des pokemons</h1>
-<div class="container">
-  <div class="row">
-    <div class="row">
-      <div *ngFor="let pokemon of pokemonList" class="col m4 s6">
-        <div
-          class="card horizontal"
-          (click)="selectPokemon(pokemon)"
-          appBorderCard
-        >
-          <div class="card-image">
-            <img [src]="pokemon.picture" />
-          </div>
-          <div class="card-stacked">
-            <div class="card-content">
-              <p>{{ pokemon.name }}</p>
-              <p>
-                <small> {{ pokemon.created | date }}</small>
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+<nav>
+  <div class="nav-wrapper">
+    <a href="#" class="brand-logo center ">POKEDEX</a>
+    <ul class="left hide-on-med-and-down">
+      <li class="active"><a href="collapsible.html">Pokemon Apps</a></li>
+    </ul>
   </div>
-</div>
+</nav>
+
+<router-outlet></router-outlet>

@@ -5,7 +5,7 @@ import { Directive, ElementRef, HostListener, Input } from '@angular/core';
 })
 export class BorderCardDirective {
   defaultHeight: number = 180;
-  defaultColor: string = "#034052";
+  defaultColor: string = "#de041e";
   initialColor: string =  "#f5f5f5";
 
   constructor(private element:ElementRef) { 
@@ -14,7 +14,7 @@ export class BorderCardDirective {
 
   }
 
-  @Input("appBorderCard") borderColor:string;
+  @Input("appBorderCard") borderColor:string; // alias
 
   @HostListener('mouseenter') onMouseEnter() {
     this.setBorder(this.borderColor || this.defaultColor);
