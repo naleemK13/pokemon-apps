@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Pokemon } from '../pokemon';
-import { PokemonModule } from '../pokemon.module';
 import { PokemonService } from '../pokemon.service';
 
 @Component({
@@ -17,10 +16,13 @@ export class EditPokemonComponent implements OnInit {
     private pokemonService: PokemonService
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit(){
     const pokemonId: string | null = this.route.snapshot.paramMap.get("id");
     if(pokemonId){
-      this.pokemon = this.pokemonService.getPokemonById(+pokemonId);
+      this.pokemonService.getPokemonById(+pokemonId)
+      .subscribe(pokemon => this.pokemon = pokemon);
+    }else{
+      this.pokemon = undefined
     }
   }
 
